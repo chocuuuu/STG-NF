@@ -6,7 +6,7 @@ from PIL import Image
 from matplotlib import pyplot as plt
 from tqdm import tqdm
 
-plt.style.use('seaborn-ticks')
+plt.style.use('seaborn-v0_8-ticks')
 
 
 def get_ab_labels(global_data_np_ab, segs_meta_ab, path_to_vid_dir='', segs_root=''):
@@ -163,7 +163,7 @@ def split_pose_to_segments(single_pose_np, single_pose_meta, single_pose_keys, s
     pose_segs_np = np.empty([0, seg_len, kp_count, kp_dim])
     pose_score_np = np.empty([0, seg_len])
     pose_segs_meta = []
-    num_segs = np.ceil((clip_t - seg_len) / seg_dist).astype(np.int)
+    num_segs = np.ceil((clip_t - seg_len) / seg_dist).astype(int)
     single_pose_keys_sorted = sorted([int(i) for i in single_pose_keys])  # , key=lambda x: int(x))
     for seg_ind in range(num_segs):
         start_ind = start_ofst + seg_ind * seg_dist
