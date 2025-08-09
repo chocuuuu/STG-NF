@@ -247,7 +247,7 @@ def keypoints17_to_coco18(kps):
     neck_kp_vec = 0.5 * (kp_np[..., 5, :] + kp_np[..., 6, :])
     kp_np = np.concatenate([kp_np, neck_kp_vec[..., None, :]], axis=-2)
     opp_order = [0, 17, 6, 8, 10, 5, 7, 9, 12, 14, 16, 11, 13, 15, 2, 1, 4, 3]
-    opp_order = np.array(opp_order, dtype=np.int)
+    opp_order = np.array(opp_order, dtype=int)
     kp_coco18 = kp_np[..., opp_order, :]
     return kp_coco18
 
